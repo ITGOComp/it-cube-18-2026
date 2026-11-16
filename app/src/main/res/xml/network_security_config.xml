@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    НАСТРОЙКИ БЕЗОПАСНОСТИ СЕТИ.
+    Серверы GigaChat используют сертификат российского центра (Минцифры),
+    которого нет в Android. Поэтому добавляем его, но ТОЛЬКО для адресов Сбера.
+    Все остальные сайты проверяются как обычно.
+-->
+<network-security-config>
+    <domain-config>
+        <domain includeSubdomains="true">devices.sberbank.ru</domain>
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="@raw/russian_trusted_root_ca" />
+        </trust-anchors>
+    </domain-config>
+</network-security-config>
